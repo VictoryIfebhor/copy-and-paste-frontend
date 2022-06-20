@@ -1,14 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaCopy } from "react-icons/fa";
 
-const OutputBox = () => {
-  const selectContentRandomly = () => {
-    return Math.random() > 0.5
-      ? "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit expedita repellendus amet, commodi magnam sequi fuga, atque quia necessitatibus architecto iste iusto voluptatem temporibus fugiat, quibusdam nemo molestiae eligendi ipsum laborum. Nulla adipisci esse debitis eius aliquam explicabo ratione doloremque libero ipsam dolore praesentium dolorum dolorem, similique fugiat expedita ipsa."
-      : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, consectetur? Inventore placeat doloremque cupiditate";
-  };
-
-  const [content, setContent] = useState(selectContentRandomly());
+const OutputBox = ({ title, content }) => {
   const [fullDisplay, setFullDisplay] = useState(false);
   const [displayMessage, setDisplayMessage] = useState(false);
 
@@ -22,7 +15,7 @@ const OutputBox = () => {
 
   return (
     <article>
-      <h3>Title</h3>
+      <h3>{title}</h3>
       <div className="icon-container">
         <FaCopy className="icon" onClick={copyToClipboard} />
         {displayMessage && <p>copied to clipboard!</p>}
