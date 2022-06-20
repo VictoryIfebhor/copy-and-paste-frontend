@@ -16,6 +16,14 @@ main {
   margin: 24px auto;
 }
 
+.login-main {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
 header {
   padding: 8px;
   font-size: 1.7rem;
@@ -51,6 +59,11 @@ header p {
   background-color: blue;
 }
 
+.login-btn {
+  padding: 16px;
+  font-size: 2rem;
+}
+
 form {
   border: 0.4px solid #aaa;
   box-shadow: 5px 5px 5px #ccc;
@@ -75,7 +88,7 @@ form .btn {
 }
 
 textarea {
-  height: 150px;
+  height: 100px;
   resize: none;
 }
 
@@ -121,4 +134,11 @@ article button {
   font-size: 0.8rem;
   overflow: hidden;
   padding: 4px;
+  padding-left: 8px;
+  border-radius: 4px;
+}
+
+.input-field {
+  width: 100%;
+  border: 1px solid blue;
 }

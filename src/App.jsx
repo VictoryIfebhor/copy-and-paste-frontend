@@ -1,32 +1,18 @@
-import Header from "./components/Header";
-import Input from "./components/Input";
-import OutputBox from "./components/OutputBox";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./pages/Layout";
+import Login from "./pages/Login";
+import Main from "./pages/Main";
 
 const App = () => {
-  const selectContentRandomly = () => {
-    return Math.random() > 0.5
-      ? "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit expedita repellendus amet, commodi magnam sequi fuga, atque quia necessitatibus architecto iste iusto voluptatem temporibus fugiat, quibusdam nemo molestiae eligendi ipsum laborum. Nulla adipisci esse debitis eius aliquam explicabo ratione doloremque libero ipsam dolore praesentium dolorum dolorem, similique fugiat expedita ipsa."
-      : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, consectetur? Inventore placeat doloremque cupiditate";
-  };
-
   return (
-    <>
-      <Header />
-      <main>
-        <Input />
-        <section>
-          {[1, 2, 3, 4].map((num) => {
-            return (
-              <OutputBox
-                key={num}
-                title="Title"
-                content={selectContentRandomly()}
-              />
-            );
-          })}
-        </section>
-      </main>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Main />} />
+          <Route path="auth" element={<Login />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
