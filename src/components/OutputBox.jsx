@@ -1,11 +1,11 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { FaCopy } from "react-icons/fa";
 
 const OutputBox = () => {
   const selectContentRandomly = () => {
     return Math.random() > 0.5
       ? "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit expedita repellendus amet, commodi magnam sequi fuga, atque quia necessitatibus architecto iste iusto voluptatem temporibus fugiat, quibusdam nemo molestiae eligendi ipsum laborum. Nulla adipisci esse debitis eius aliquam explicabo ratione doloremque libero ipsam dolore praesentium dolorum dolorem, similique fugiat expedita ipsa."
-      : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, consectetur? Inventore placeat doloremque cupiditate deserunt. Commodi eligendi amet inventore debitis?";
+      : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, consectetur? Inventore placeat doloremque cupiditate";
   };
 
   const [content, setContent] = useState(selectContentRandomly());
@@ -29,9 +29,15 @@ const OutputBox = () => {
       </div>
       <div className="content">
         <p>
-          {fullDisplay ? content : `${content.substring(0, 150)}...`}
+          {fullDisplay || content.length <= 150
+            ? content
+            : `${content.substring(0, 150)}...`}
           <button onClick={() => setFullDisplay((prevState) => !prevState)}>
-            {fullDisplay ? "show less" : "read more"}
+            {content.length <= 150
+              ? ""
+              : fullDisplay
+              ? "show less"
+              : "read more"}
           </button>
         </p>
       </div>
