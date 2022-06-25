@@ -7,6 +7,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const logout = () => {
+    localStorage.removeItem("jwt");
     setUser(null);
     navigate("/auth");
   };
@@ -18,6 +19,7 @@ const Header = () => {
         {user && (
           <>
             <p>{user.name}</p>
+            <img src={user.image} alt={user.name} />
             <button className="btn" onClick={logout}>
               Logout
             </button>
