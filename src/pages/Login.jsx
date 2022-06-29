@@ -10,7 +10,7 @@ const Login = () => {
   const handleSuccess = async (googleData) => {
     const { credential } = googleData;
     try {
-      const { data } = await axiosInstance.post("/auth", {
+      const { data } = await axiosInstance.post("/users/auth", {
         credential,
       });
       const { name, email, image, token } = data;
