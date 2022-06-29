@@ -4,7 +4,7 @@ import { axiosInstance } from "../axios";
 import { useGlobalContext } from "../context";
 
 const Login = () => {
-  const { user, setUser } = useGlobalContext();
+  const { setUser } = useGlobalContext();
   const navigate = useNavigate();
 
   const handleSuccess = async (googleData) => {
