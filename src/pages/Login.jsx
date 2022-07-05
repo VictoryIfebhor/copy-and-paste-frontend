@@ -4,7 +4,7 @@ import { axiosInstance } from "../axios";
 import { useGlobalContext } from "../context";
 
 const Login = () => {
-  const { setUser } = useGlobalContext();
+  const { setUser, setItems, setCount } = useGlobalContext();
   const navigate = useNavigate();
 
   const handleSuccess = async (googleData) => {
@@ -13,9 +13,15 @@ const Login = () => {
       const { data } = await axiosInstance.post("/users/auth", {
         credential,
       });
-      const { name, email, image, token } = data;
+      // get user info and set in localStorage
+      // const { name, email, image, token } = data;
       localStorage.setItem("jwt", token);
-      setUser({ name, email, image });
+      // setUser({ name, email, image });
+      // get items that belong to user
+      // const { items } = await axiosInstance.get("/items");
+      // setItems(items);
+      // navigate home
+      setCount((prevCount) => prevCount + 1);
       navigate("/");
     } catch (error) {
       if (error.response) {

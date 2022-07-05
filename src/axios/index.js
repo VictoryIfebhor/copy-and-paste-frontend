@@ -7,3 +7,13 @@ export const axiosInstance = axios.create({
     "Content-Type": "application/json",
   },
 });
+
+axiosInstance.interceptors.request.use((req) => {
+  const token = localStorage.getItem("jwt");
+  if (token) {
+    console.log(token);
+    req.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return req;
+});
