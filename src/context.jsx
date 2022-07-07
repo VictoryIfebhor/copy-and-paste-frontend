@@ -15,7 +15,7 @@ export const AppProvider = ({ children }) => {
     try {
       const { data } = await axiosInstance.get("/users/me");
       console.log(data);
-      if (data) {
+      if (data?.user) {
         const { name, email, image, items } = data.user;
         setUser({ name, email, image });
         setItems(items);
