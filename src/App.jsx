@@ -12,6 +12,7 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={user ? <Main /> : <Navigate to={"/auth"} />} />
         <Route path="auth" element={<Login />} />
+        <Route path="*" element={<Navigate to={"/auth"} />} />
       </Route>
     </Routes>
   );
