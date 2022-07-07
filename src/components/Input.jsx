@@ -14,6 +14,8 @@ const Input = () => {
       console.log("about to call API");
       await axiosInstance.post("/items", { title, content });
       setCount((prevCount) => prevCount + 1);
+      setTitle("");
+      setContent("");
     } catch (error) {
       if (error.response) {
         console.log(error.response.data);
